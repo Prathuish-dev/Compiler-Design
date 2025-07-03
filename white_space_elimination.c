@@ -5,7 +5,7 @@
 int main()
 {
     FILE *fp1,*fp2;
-    fp1 = fopen("btree.c","r");
+    fp1 = fopen("your-.c file","r");
     fp2 = fopen("output.c","w");
     char ch;
     while((ch=fgetc(fp1))!=EOF)
