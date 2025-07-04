@@ -64,12 +64,12 @@ int main()
         {
             if(current_state==final[i])
             {
-                printf("string matches\n");
+                printf("string is accepted\n");
                 flag=1;
             }    
         }
         if(flag==0)
-            printf("string is not a match\n");
+            printf("string is rejected\n");
     }  
 
     return 0;    
