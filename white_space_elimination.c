@@ -2,27 +2,33 @@
 
 #include<stdio.h>
 
-int main()
+int main(int argc,char *argv[])
 {
+    if(argc != 3)
+    {
+        printf("usage: %s <input file> <output file>\n", argv[0]);
+        returnn 1;
+    }
     FILE *fp1,*fp2;
-    fp1 = fopen("your-.c file","r");
-    fp2 = fopen("output.c","w");
+    fp1 = fopen(argv[1],"r");
+    fp2 = fopen(argv[2],"w");
     char ch;
     while((ch=fgetc(fp1))!=EOF)
     {
         switch(ch)
         {
+            //elimination of white space, new line and tab
             case ' ':
             case '\n':
             case '\t':
                 break;
             case '/':
                 ch = fgetc(fp1);
-                if(ch=='/')
+                if(ch=='/')//elimination of single line commend
                 {    
                     while((ch=fgetc(fp1))!='\n');
                 }
-                else if(ch=='*')
+                else if(ch=='*')//elimination of multi line comment
                 {
                     char ch1=fgetc(fp1);
                     char ch2=fgetc(fp1);
